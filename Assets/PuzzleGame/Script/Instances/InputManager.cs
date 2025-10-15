@@ -23,7 +23,7 @@ public class InputManager : MonoBehaviour
 
     private Node3D debugNode;
     private Coroutine movingCoroutine;
-    private LayerMask holeMask;
+    private LayerMask[] holeMask;
 
 #if UNITY_EDITOR
     [Header("Debug Gizmos")]
@@ -34,7 +34,6 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        holeMask = LayerMask.NameToLayer("Hole");
     }
 
     private bool GameCanInput()
@@ -86,7 +85,7 @@ public class InputManager : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             if (currentlyDragging == null) { return; }
-            StopCoroutine(movingCoroutine);
+            if (movingCoroutine != null) { StopCoroutine(movingCoroutine); }
             var nodeSnap = GridPathfinder3D.Instance.NearestNode3D(currentlyDragging.transform.position, dynamicWalkInflate);
             currentlyDragging.GetComponentInChildren<IDraggable>().OnRelease(nodeSnap);
             dragStartNode = null;
@@ -104,18 +103,18 @@ public class InputManager : MonoBehaviour
             float y = currentlyDragging.transform.position.y;
             Node3D startNode = GridPathfinder3D.Instance.NearestNode3D(currentlyDragging.transform.position, dynamicWalkInflate);
             Node3D targetNode = GridPathfinder3D.Instance.NearestNode3D(desiredRaw, dynamicWalkInflate);
+            Node3D cursorNode = GridPathfinder3D.Instance.NearestNode3D(desiredRaw);
             debugNode = targetNode;
 
-            /*Vector3 startPosition = transform.position; 
-            Vector3 endPosition = targetObject.transform.position; 
+            /*Vector3 startPosition = currentlyDragging.transform.position;
+            Vector3 endPosition = desiredRaw;
 
             Vector3 direction = (endPosition - startPosition).normalized;
             float distance = Vector3.Distance(startPosition, endPosition);*/
 
-
-            /*if (FootprintFree(targetNode) && PathExists3x3(targetNode))
+            if (FootprintFree(targetNode) && PathExists3x3(targetNode))
             {
-                pathNode = GridPathfinder3D.Instance.FindPath(startNode.pos, targetNode.pos, dynamicWalkInflate);
+                /*pathNode = GridPathfinder3D.Instance.FindPath(startNode.pos, targetNode.pos, dynamicWalkInflate);
                 pathNode.Add(targetNode.pos);
                 if (pathNode.Count < 14) // If the path it found is too long, cancel the movement;
                 {
@@ -124,21 +123,63 @@ public class InputManager : MonoBehaviour
                 else
                 {
                     currentlyDragging.transform.position = new Vector3(startNode.pos.x, y, startNode.pos.z);
-                }
+                }*/
 
+                /*RaycastHit hitInfo;
+                if (Physics.Raycast(startPosition, direction, out hitInfo, distance, LayerMask.GetMask("People")))
+                {
+                    // The ray hit something. 'hitInfo' contains details about the hit.
+                    bool sameid = false;
+                    List<int> ids = new List<int>(hitInfo.collider.gameObject.GetComponent<IAssignID>().GetIDs());
+                    List<int> holeids = new List<int>(currentlyDragging.GetComponentInChildren<IAssignID>().GetIDs());
+                    
+                    if (sameid)
+                    {
+                        //Debug.Log("moving");
+                        //movingCoroutine = StartCoroutine(ApplyMovement(desiredRaw));
+                        currentlyDragging.transform.position = new Vector3(desiredRaw.x, y, desiredRaw.z);
+                    }
+                }
+                else
+                {
+                    //Debug.Log("Raycast did not hit anything.");
+                    //movingCoroutine = StartCoroutine(ApplyMovement(desiredRaw));
+                    currentlyDragging.transform.position = new Vector3(desiredRaw.x, y, desiredRaw.z);
+                }*/
+
+                if (!dynamicWalkInflate.TryGetValue(cursorNode, out bool walkable)) return;
+
+                if (walkable) 
+                {
+                    currentlyDragging.transform.position = new Vector3(desiredRaw.x, y, desiredRaw.z);
+                }
+                else
+                {
+                    if (Vector3.Distance(targetNode.pos, cursorNode.pos) < 5f)
+                    {
+                        pathNode = GridPathfinder3D.Instance.FindPath(startNode.pos, targetNode.pos, dynamicWalkInflate);
+                        pathNode.Add(targetNode.pos);
+                        movingCoroutine = StartCoroutine(ApplyMovement(desiredRaw));
+                    }
+                    else
+                    {
+                        currentlyDragging.transform.position = new Vector3(startNode.pos.x, y, startNode.pos.z);
+                    }     
+                }
 
                 if (startNode != lastNode)
                 {
-                    *//*var holeID = currentlyDragging.GetComponentInChildren<IAssignID>().GetIDs();
-                    var inflatedWalk = GridPathfinder3D.Instance.BuildInflatedWalkability(holeID);*//*
+                    var holeID = currentlyDragging.GetComponentInChildren<IAssignID>().GetIDs();
+                    var inflatedWalk = GridPathfinder3D.Instance.BuildInflatedWalkability(holeID);
                     lastNodes = GetHoleFootprint3x3(startNode);
                     lastNode = startNode;
-                    StopCoroutine(movingCoroutine);
+                    if (movingCoroutine != null)
+                        StopCoroutine(movingCoroutine);
 
-                    *//*dynamicWalkInflate = GridPathfinder3D.Instance.PruneToReachable(dragStartNode, inflatedWalk);*//*
+                    dynamicWalkInflate = GridPathfinder3D.Instance.PruneToReachable(dragStartNode, inflatedWalk);
                 }
                 return;
-            }*/
+            }
         }
     }
 
