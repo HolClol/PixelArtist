@@ -10,12 +10,14 @@ public class PeopleController : IDAssign, IAssignID
     private Vector3 scaleOrigin;
     private Rigidbody rb;
     private MeshCollider colliderbox;
+    private GameObject realOwner;
 
     private LayerMask mask = (1 << 0) | (1 << 8);
 
     private void Awake()
     {
         rb = transform.GetComponent<Rigidbody>();
+        realOwner = transform.parent.gameObject;
         var boxes = transform.GetComponents<Collider>();
         colliderbox = boxes[1] as MeshCollider; // Because fuck it 
         scaleOrigin = transform.localScale;
@@ -81,6 +83,7 @@ public class PeopleController : IDAssign, IAssignID
 
     public void MovementFill(Vector3 start, Transform end)
     {
+        transform.SetParent(realOwner.transform, true);
         FakeGrid.SetActive(false);
         RealGrid.SetActive(true);
         rb.isKinematic = true;

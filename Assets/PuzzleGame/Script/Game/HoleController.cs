@@ -101,7 +101,9 @@ public class HoleController : IDAssign, IDraggable, IAssignID
             if (!CheckID(people.GetIDs())) { return; }
 
             cubeSucked++;
+            people.gameObject.transform.SetParent(transform, true);
             people.SuckedIntoHole(transform);
+            
             /*Debug.Log("sucked " + cubeSucked);
             Debug.Log("totalCubes: " + totalCubes);*/
 

@@ -135,17 +135,6 @@ public class InputManager : MonoBehaviour
                     }
                 }
 
-                /*if (startNode != lastNode)
-                {
-                    var holeID = currentlyDragging.GetComponentInChildren<IAssignID>().GetIDs();
-                    var inflatedWalk = GridPathfinder3D.Instance.BuildInflatedWalkability(holeID);
-                    lastNodes = GetHoleFootprint3x3(startNode);
-                    lastNode = startNode;
-                    if (movingCoroutine != null)
-                        StopCoroutine(movingCoroutine);
-
-                    dynamicWalkInflate = GridPathfinder3D.Instance.PruneToReachable(dragStartNode, inflatedWalk);
-                }*/
                 return;
             }
         }
