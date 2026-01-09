@@ -114,42 +114,10 @@ public class InputManager : MonoBehaviour
 
             if (FootprintFree(targetNode) && PathExists3x3(targetNode))
             {
-                /*pathNode = GridPathfinder3D.Instance.FindPath(startNode.pos, targetNode.pos, dynamicWalkInflate);
-                pathNode.Add(targetNode.pos);
-                if (pathNode.Count < 14) // If the path it found is too long, cancel the movement;
-                {
-                    movingCoroutine = StartCoroutine(ApplyMovement(desiredRaw));
-                }
-                else
-                {
-                    currentlyDragging.transform.position = new Vector3(startNode.pos.x, y, startNode.pos.z);
-                }*/
-
-                /*RaycastHit hitInfo;
-                if (Physics.Raycast(startPosition, direction, out hitInfo, distance, LayerMask.GetMask("People")))
-                {
-                    // The ray hit something. 'hitInfo' contains details about the hit.
-                    bool sameid = false;
-                    List<int> ids = new List<int>(hitInfo.collider.gameObject.GetComponent<IAssignID>().GetIDs());
-                    List<int> holeids = new List<int>(currentlyDragging.GetComponentInChildren<IAssignID>().GetIDs());
-                    
-                    if (sameid)
-                    {
-                        //Debug.Log("moving");
-                        //movingCoroutine = StartCoroutine(ApplyMovement(desiredRaw));
-                        currentlyDragging.transform.position = new Vector3(desiredRaw.x, y, desiredRaw.z);
-                    }
-                }
-                else
-                {
-                    //Debug.Log("Raycast did not hit anything.");
-                    //movingCoroutine = StartCoroutine(ApplyMovement(desiredRaw));
-                    currentlyDragging.transform.position = new Vector3(desiredRaw.x, y, desiredRaw.z);
-                }*/
 
                 if (!dynamicWalkInflate.TryGetValue(cursorNode, out bool walkable)) return;
 
-                if (walkable) 
+                if (walkable)
                 {
                     currentlyDragging.transform.position = new Vector3(desiredRaw.x, y, desiredRaw.z);
                 }
@@ -164,10 +132,10 @@ public class InputManager : MonoBehaviour
                     else
                     {
                         currentlyDragging.transform.position = new Vector3(startNode.pos.x, y, startNode.pos.z);
-                    }     
+                    }
                 }
 
-                if (startNode != lastNode)
+                /*if (startNode != lastNode)
                 {
                     var holeID = currentlyDragging.GetComponentInChildren<IAssignID>().GetIDs();
                     var inflatedWalk = GridPathfinder3D.Instance.BuildInflatedWalkability(holeID);
@@ -177,7 +145,7 @@ public class InputManager : MonoBehaviour
                         StopCoroutine(movingCoroutine);
 
                     dynamicWalkInflate = GridPathfinder3D.Instance.PruneToReachable(dragStartNode, inflatedWalk);
-                }
+                }*/
                 return;
             }
         }
