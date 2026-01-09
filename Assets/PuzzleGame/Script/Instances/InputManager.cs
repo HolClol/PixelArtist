@@ -24,6 +24,7 @@ public class InputManager : MonoBehaviour
     private Node3D debugNode;
     private Coroutine movingCoroutine;
     private LayerMask[] holeMask;
+    private List<int> holeID;
 
 #if UNITY_EDITOR
     [Header("Debug Gizmos")]
@@ -68,7 +69,7 @@ public class InputManager : MonoBehaviour
                         dragOffset = currentlyDragging.transform.position - planeHit;
                     }
 
-                    var holeID = currentlyDragging.GetComponentInChildren<IAssignID>().GetIDs();
+                    holeID = currentlyDragging.GetComponentInChildren<IAssignID>().GetIDs();
                     var inflatedWalk = GridPathfinder3D.Instance.BuildInflatedWalkability(holeID);
 
                     dragStartNode = GridPathfinder3D.Instance.NearestNode3D(currentlyDragging.transform.position);
@@ -90,6 +91,7 @@ public class InputManager : MonoBehaviour
             currentlyDragging.GetComponentInChildren<IDraggable>().OnRelease(nodeSnap);
             dragStartNode = null;
             currentlyDragging = null;
+            holeID.Clear();
             lastNodes.Clear();
         }
 
@@ -123,18 +125,21 @@ public class InputManager : MonoBehaviour
                 }
                 else
                 {
-                    if (Vector3.Distance(targetNode.pos, cursorNode.pos) < 5f)
+                    float xdiff = Mathf.Abs(cursorNode.pos.x - targetNode.pos.x);
+                    float zdiff = Mathf.Abs(cursorNode.pos.z - targetNode.pos.z);
+                    if (xdiff > zdiff && zdiff == 0) // Lock X
                     {
-                        pathNode = GridPathfinder3D.Instance.FindPath(startNode.pos, targetNode.pos, dynamicWalkInflate);
-                        pathNode.Add(targetNode.pos);
-                        movingCoroutine = StartCoroutine(ApplyMovement(desiredRaw));
+                        currentlyDragging.transform.position = new Vector3(targetNode.pos.x, y, desiredRaw.z);
+                    }
+                    else if (zdiff > xdiff && xdiff == 0) // Lock Z
+                    {
+                        currentlyDragging.transform.position = new Vector3(desiredRaw.x, y, targetNode.pos.z);
                     }
                     else
                     {
-                        currentlyDragging.transform.position = new Vector3(startNode.pos.x, y, startNode.pos.z);
-                    }
+                        currentlyDragging.transform.position = new Vector3(targetNode.pos.x, y, targetNode.pos.z);
+                    }                 
                 }
-
                 return;
             }
         }
@@ -147,6 +152,7 @@ public class InputManager : MonoBehaviour
         currentlyDragging.GetComponentInChildren<IDraggable>().OnRelease(nodeSnap);
         dragStartNode = null;
         currentlyDragging = null;
+        holeID.Clear();
         lastNodes.Clear();
     }
 
