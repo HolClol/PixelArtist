@@ -16,7 +16,7 @@ public class InputManager : MonoBehaviour
 
     private Vector3 dragOffset;
     private Plane dragPlane;
-    private Dictionary<Node3D, bool> dynamicWalkInflate = new Dictionary<Node3D, bool>() { };
+    private Dictionary<Node3D, bool> dynamicWalkInflate = new Dictionary<Node3D, bool>();
     private List<MeshRenderer> lastNodes = new List<MeshRenderer>();
     private Node3D dragStartNode, lastNode;
     private List<Vector3> pathNode = new List<Vector3>();
