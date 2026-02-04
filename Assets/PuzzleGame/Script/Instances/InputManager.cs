@@ -7,12 +7,14 @@ public interface IDraggable
     public void OnClick();
     public void OnRelease(Node3D node);
     public bool GetDraggable();
+    public void Drag(Vector3 targetpos);
 }
 
 public class InputManager : MonoBehaviour
 {
     public static InputManager Instance;
     public GameObject currentlyDragging;
+    public float MoveSpeed = 3f;
 
     private Vector3 dragOffset;
     private Plane dragPlane;
@@ -25,6 +27,7 @@ public class InputManager : MonoBehaviour
     private Coroutine movingCoroutine;
     private LayerMask[] holeMask;
     private List<int> holeID;
+    private IDraggable _dragInterface;
 
 #if UNITY_EDITOR
     [Header("Debug Gizmos")]
@@ -56,7 +59,8 @@ public class InputManager : MonoBehaviour
             {
                 if (hit.collider.GetComponent<IDraggable>() != null)
                 {
-                    if (!hit.collider.GetComponent<IDraggable>().GetDraggable()) return;
+                    _dragInterface = hit.collider.GetComponent<IDraggable>();
+                    if (!_dragInterface.GetDraggable()) return;
                     currentlyDragging = FunctionManager.Instance.GetRootParent(hit.collider.gameObject, 1);
                     hit.collider.GetComponent<IDraggable>().OnClick();
 
@@ -88,9 +92,10 @@ public class InputManager : MonoBehaviour
             if (currentlyDragging == null) { return; }
             if (movingCoroutine != null) { StopCoroutine(movingCoroutine); }
             var nodeSnap = GridPathfinder3D.Instance.NearestNode3D(currentlyDragging.transform.position, dynamicWalkInflate);
-            currentlyDragging.GetComponentInChildren<IDraggable>().OnRelease(nodeSnap);
+            _dragInterface.OnRelease(nodeSnap);
             dragStartNode = null;
             currentlyDragging = null;
+            _dragInterface = null;
             holeID.Clear();
             lastNodes.Clear();
         }
@@ -119,35 +124,35 @@ public class InputManager : MonoBehaviour
 
                 if (!dynamicWalkInflate.TryGetValue(cursorNode, out bool walkable)) return;
 
-                if (walkable)
-                {
-                    currentlyDragging.transform.position = new Vector3(desiredRaw.x, y, desiredRaw.z);
-                }
-                else
+                Vector3 endPos = new Vector3(desiredRaw.x, y, desiredRaw.z);
+                if (!walkable)
                 {
                     float xdiff = Mathf.Abs(cursorNode.pos.x - targetNode.pos.x);
                     float zdiff = Mathf.Abs(cursorNode.pos.z - targetNode.pos.z);
                     if (xdiff > zdiff && zdiff == 0) // Lock X
                     {
-                        currentlyDragging.transform.position = new Vector3(targetNode.pos.x, y, desiredRaw.z);
+                        endPos = new Vector3(targetNode.pos.x, y, desiredRaw.z);
                     }
                     else if (zdiff > xdiff && xdiff == 0) // Lock Z
                     {
-                        currentlyDragging.transform.position = new Vector3(desiredRaw.x, y, targetNode.pos.z);
+                        endPos = new Vector3(desiredRaw.x, y, targetNode.pos.z);
                     }
-                    else
+                    else // Corner
                     {
-                        currentlyDragging.transform.position = new Vector3(targetNode.pos.x, y, targetNode.pos.z);
+                        endPos = new Vector3(targetNode.pos.x, y, targetNode.pos.z);
                     }                 
                 }
-                return;
+
+                //var pathNode = GridPathfinder3D.Instance.FindPath(currentlyDragging.transform.position, endPos);
+                //if (pathNode.Count >= 8) return;
+                //_dragInterface.Drag(Vector3.Lerp(currentlyDragging.transform.position, endPos,Time.deltaTime * MoveSpeed * GameManager.Instance.gameSpeed));
+                currentlyDragging.transform.position = Vector3.Lerp(currentlyDragging.transform.position, endPos,Time.deltaTime * MoveSpeed * GameManager.Instance.gameSpeed);
             }
         }
     }
 
     public void HoleDestroyed()
     {
-        StopCoroutine(movingCoroutine);
         var nodeSnap = GridPathfinder3D.Instance.NearestNode3D(currentlyDragging.transform.position, dynamicWalkInflate);
         currentlyDragging.GetComponentInChildren<IDraggable>().OnRelease(nodeSnap);
         dragStartNode = null;
@@ -156,7 +161,7 @@ public class InputManager : MonoBehaviour
         lastNodes.Clear();
     }
 
-    private IEnumerator ApplyMovement(Vector3 mousepos)
+    /*private IEnumerator ApplyMovement(Vector3 mousepos)
     {
         float y = currentlyDragging.transform.position.y;
         foreach (var node in pathNode)
@@ -169,7 +174,7 @@ public class InputManager : MonoBehaviour
             }
             yield return null;
         }
-    }
+    }*/
 
     private List<MeshRenderer> GetHoleFootprint3x3(Node3D center)
     {

@@ -2045,8 +2045,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2802323368200948919, guid: 777696698cd2266409ef30aaf26699c3, type: 3}
+      propertyPath: MoveSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802323368200948919, guid: 777696698cd2266409ef30aaf26699c3, type: 3}
       propertyPath: drawGraphGizmos
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4362354375450922827, guid: 777696698cd2266409ef30aaf26699c3, type: 3}
       propertyPath: m_Name

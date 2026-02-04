@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 7532132354822365729}
   - component: {fileID: 2374528352197862791}
   - component: {fileID: 3724527273605080803}
-  - component: {fileID: 7150165626154453638}
+  - component: {fileID: 6204233343194722136}
   m_Layer: 0
   m_Name: Component
   m_TagString: Untagged
@@ -249,7 +249,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.5, y: 3, z: 2.5}
   m_Center: {x: 0, y: 1, z: 0}
---- !u!54 &7150165626154453638
+--- !u!54 &6204233343194722136
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

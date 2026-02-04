@@ -14,6 +14,12 @@ public class HoleController : IDAssign, IDraggable, IAssignID
     private int cubeSucked = 0;
     [HideInInspector] public int totalCubes = 0;
     private bool draggable = true;
+    private Rigidbody rigidBody; 
+
+    private void Start()
+    {
+        rigidBody = GetComponent<Rigidbody>();
+    }
 
     public List<int> GetIDs()
     {
@@ -76,6 +82,11 @@ public class HoleController : IDAssign, IDraggable, IAssignID
     public bool GetDraggable()
     {
         return draggable;
+    }
+
+    public void Drag(Vector3 targetpos)
+    {
+        rigidBody.MovePosition(targetpos);
     }
 
     private bool CheckID(List<int> pplid)
