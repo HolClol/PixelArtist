@@ -51,7 +51,7 @@ public class PeopleController : IDAssign, IAssignID
         while (true)
         {
             Vector3 yPos = new Vector3(holepos.position.x, startY, holepos.position.z);
-            Vector3 linearPos = Vector3.Lerp(transform.position, yPos, Random.Range(0.2f, 0.5f));
+            Vector3 linearPos = Vector3.Lerp(transform.position, yPos, 0.3f);
             Vector3 targetPos = linearPos + offset;
             float dist = Vector3.Distance(transform.position, targetPos);
             if (dist <= stopDist)

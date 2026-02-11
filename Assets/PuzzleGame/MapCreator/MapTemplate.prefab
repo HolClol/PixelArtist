@@ -1228,7 +1228,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aac39544ade69a3498442a1a8d40c819, type: 2}
+  - {fileID: 2100000, guid: c8f21e6c80a23cb47b6bf3e91c08eb9e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1452,6 +1452,9 @@ MonoBehaviour:
   BlackHole: {fileID: 3530223758489852619}
   GridCanvasController: {fileID: 8430895812898971452}
   groupPeople: []
+  peopleList: []
+  holeList: []
+  gridList: []
 --- !u!1001 &3277647277933120154
 PrefabInstance:
   m_ObjectHideFlags: 0
