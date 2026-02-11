@@ -20,9 +20,9 @@ Material:
   - _TEXTUREBLENDINGMODE_MULTIPLY
   - _UNITYSHADOWMODE_NONE
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 1000
   stringTagMap: {}
   disabledShaderPasses:
   - SRPDEFAULTUNLIT
@@ -151,7 +151,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.27596295, g: 0.3987002, b: 0.4264151, a: 1}
-    - _Color: {r: 0.48001954, g: 0.50029373, b: 0.6320754, a: 1}
+    - _Color: {r: 0.4423851, g: 0.4719566, b: 0.5245282, a: 1}
     - _ColorDim: {r: 0.13134207, g: 0.42824766, b: 0.4867924, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorDimExtra: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}

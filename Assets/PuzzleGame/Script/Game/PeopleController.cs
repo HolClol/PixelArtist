@@ -42,15 +42,16 @@ public class PeopleController : IDAssign, IAssignID
     {
         Vector3 offset = new Vector3(0f, -1.5f, 0f);
         float stopDist = 0.5f;     
-        float baseSpeed = 10f;
+        float baseSpeed = 5f;
         float multiplySpeed = 1f;
         float startY = transform.position.y;
+        float delayForce = 0.05f;
         rb.AddForce(new Vector3(0f, 25f, 0f), ForceMode.Impulse);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(delayForce);
         while (true)
         {
             Vector3 yPos = new Vector3(holepos.position.x, startY, holepos.position.z);
-            Vector3 linearPos = Vector3.Lerp(transform.position, yPos, 0.3f);
+            Vector3 linearPos = Vector3.Lerp(transform.position, yPos, Random.Range(0.2f, 0.5f));
             Vector3 targetPos = linearPos + offset;
             float dist = Vector3.Distance(transform.position, targetPos);
             if (dist <= stopDist)
@@ -58,7 +59,7 @@ public class PeopleController : IDAssign, IAssignID
 
             float speed = (baseSpeed + multiplySpeed + dist * 10f) * GameManager.Instance.gameSpeed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, targetPos, speed);
-            multiplySpeed += (multiplySpeed * 20f + dist * 20f) * Time.deltaTime;
+            multiplySpeed += (multiplySpeed * 10f + dist * 10f) * Time.deltaTime;
             
             yield return null;
         }

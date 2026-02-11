@@ -143,8 +143,8 @@ public class InputManager : MonoBehaviour
                     }                 
                 }
 
-                //var pathNode = GridPathfinder3D.Instance.FindPath(currentlyDragging.transform.position, endPos);
-                //if (pathNode.Count >= 8) return;
+                var pathNode = GridPathfinder3D.Instance.FindPath(currentlyDragging.transform.position, endPos);
+                if (pathNode.Count >= 6) return;
                 //_dragInterface.Drag(Vector3.Lerp(currentlyDragging.transform.position, endPos,Time.deltaTime * MoveSpeed * GameManager.Instance.gameSpeed));
                 currentlyDragging.transform.position = Vector3.Lerp(currentlyDragging.transform.position, endPos,Time.deltaTime * MoveSpeed * GameManager.Instance.gameSpeed);
             }
