@@ -9,12 +9,13 @@ public class HoleController : IDAssign, IDraggable, IAssignID
     public GameObject prefab;
     public List<EnumID> ListID = new List<EnumID>();    
     [HideInInspector] public List<IDAssign> people = new List<IDAssign>();
-
-    [SerializeField] private Collider[] holecollider;
-    private int cubeSucked = 0;
     [HideInInspector] public int totalCubes = 0;
+    
+    [SerializeField] private Collider[] holecollider;
     private bool draggable = true;
-    private Rigidbody rigidBody; 
+    private Rigidbody rigidBody;
+    private int cubeSucked = 0;
+    private int _inAnimationCubes = 0;
 
     private void Start()
     {
@@ -33,32 +34,7 @@ public class HoleController : IDAssign, IDraggable, IAssignID
 
     public void OnClick()
     {
-        /*int destID = (int)ID;
-        int count = 0;
-        Vector3 dest = transform.position;
 
-        people = new List<IDAssign>(GameManager.Instance.currentMap.ShufflePeopleTable(this));
-        foreach (var ppl in people)
-        {
-            Vector3 start = ppl.transform.position + Vector3.up * 0.5f;
-
-            var path = GridPathfinder3D.Instance.FindPath(start, dest, destID);
-
-            if (path.Count > 0)
-            {
-                path.Add(dest);
-                ppl.GetComponent<PeopleController>().FollowPath(path);
-                count++;
-                if (count >= GameManager.Instance.MaxHoleSearch)
-                {
-                    break;
-                }
-            }
-            else
-            {
-                // Incase it got blocked
-            }
-        }*/
     }
 
     public void OnRelease(Node3D node)
@@ -89,6 +65,11 @@ public class HoleController : IDAssign, IDraggable, IAssignID
         rigidBody.MovePosition(targetpos);
     }
 
+    public void SetStandbyCube(int value)
+    {
+        _inAnimationCubes += value;
+    }
+
     private bool CheckID(List<int> pplid)
     {
         foreach (var holeid in ListID)
@@ -104,40 +85,50 @@ public class HoleController : IDAssign, IDraggable, IAssignID
         return false;
     }
 
+    private IEnumerator HoleDestroy()
+    {
+        var parent = FunctionManager.Instance.GetRootParent(gameObject, 1);
+        if (InputManager.Instance.currentlyDragging == parent)
+        {
+            InputManager.Instance.HoleDestroyed();
+        }
+
+        while (_inAnimationCubes > 0)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+            
+        FunctionManager.Instance.DelayFunction(0.25f, () =>
+        {
+            main.transform.DOScale(0f, 0.25f)
+                .SetEase(Ease.OutQuad)
+                .OnComplete(() => 
+                {
+                    var confetti = Pooling.Spawn("ConfettiBlast", prefab, "");
+                    confetti.transform.position = main.transform.position;
+                    parent.SetActive(false);
+                });
+        });
+    }
+
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.GetComponent<IAssignID>() != null)
         {
-            var people = collider.GetComponent<PeopleController>();
-            if (!CheckID(people.GetIDs())) { return; }
+            var cube = collider.GetComponent<PeopleController>();
+            if (!CheckID(cube.GetIDs())) { return; }
 
             cubeSucked++;
-            people.gameObject.transform.SetParent(transform, true);
-            people.SuckedIntoHole(transform);
+            cube.gameObject.transform.SetParent(transform, true);
+            cube.SuckedIntoHole(transform, this);
             
             /*Debug.Log("sucked " + cubeSucked);
             Debug.Log("totalCubes: " + totalCubes);*/
 
             if (cubeSucked < totalCubes) return;
             draggable = false;
+            StartCoroutine(HoleDestroy());
             
-            var parent = FunctionManager.Instance.GetRootParent(gameObject, 1);
-            if (InputManager.Instance.currentlyDragging == parent)
-            {
-                InputManager.Instance.HoleDestroyed();
-                
-            }
-            FunctionManager.Instance.DelayFunction(0.25f, () =>
-            {
-                main.transform.DOScale(0f, 0.25f)
-                    .SetEase(Ease.OutQuad)
-                    .OnComplete(() => 
-                    {
-                        var confetti = Pooling.Spawn("ConfettiBlast", prefab, "");
-                        confetti.transform.position = main.transform.position;
-                        parent.SetActive(false);
-                    });
-            });
         }
     } 
 }

@@ -113,12 +113,6 @@ public class InputManager : MonoBehaviour
             Node3D cursorNode = GridPathfinder3D.Instance.NearestNode3D(desiredRaw);
             debugNode = targetNode;
 
-            /*Vector3 startPosition = currentlyDragging.transform.position;
-            Vector3 endPosition = desiredRaw;
-
-            Vector3 direction = (endPosition - startPosition).normalized;
-            float distance = Vector3.Distance(startPosition, endPosition);*/
-
             if (FootprintFree(targetNode) && PathExists3x3(targetNode))
             {
 
@@ -178,11 +172,11 @@ public class InputManager : MonoBehaviour
 
     private List<MeshRenderer> GetHoleFootprint3x3(Node3D center)
     {
-        foreach (var node in lastNodes)
+        /*foreach (var node in lastNodes)
         {
             //node.isTrigger = false;
             //node.enabled = true;
-        }
+        }*/
         
         lastNodes.Clear();
         float cs = GridPathfinder3D.Instance.cellSize;

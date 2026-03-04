@@ -11,6 +11,7 @@ public class PeopleController : IDAssign, IAssignID
     private Rigidbody rb;
     private MeshCollider colliderbox;
     private GameObject realOwner;
+    private HoleController _holeScript;
 
     private LayerMask mask = (1 << 0) | (1 << 8);
 
@@ -32,14 +33,16 @@ public class PeopleController : IDAssign, IAssignID
         return list;
     }
 
-    public void SuckedIntoHole(Transform holepos)
+    public void SuckedIntoHole(Transform holepos, HoleController holescript)
     {
         colliderbox.excludeLayers = LayerMask.GetMask("People", "Grid", "Default");
+        _holeScript = holescript;
         StartCoroutine(MovementSucked(holepos));
     }
 
     private IEnumerator MovementSucked(Transform holepos)
     {
+        _holeScript.SetStandbyCube(1);
         Vector3 offset = new Vector3(0f, -1.5f, 0f);
         float stopDist = 0.5f;     
         float baseSpeed = 5f;
@@ -65,6 +68,7 @@ public class PeopleController : IDAssign, IAssignID
         }
         gameObject.SetActive(false);
         GameManager.Instance.currentMap.ObjectSucked(this);
+        _holeScript.SetStandbyCube(-1);
         /*FunctionManager.Instance.DelayFunction(0.5f, () => 
         {
             

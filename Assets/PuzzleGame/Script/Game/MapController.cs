@@ -39,8 +39,8 @@ public class MapController : MonoBehaviour
     //[HideInInspector] public List<IAssignID> People;
 
     private List<GameObject> suckedObjects = new List<GameObject>();
-    private int fillCount = 0;
-    private int totalCount = 0;
+    public int fillCount = 0;
+    public int totalCount = 0;
 
 #if UNITY_EDITOR
     [Header("Map Data")]
@@ -152,16 +152,6 @@ public class MapController : MonoBehaviour
         }*/
     }
 
-    private void OnEnable()
-    {
-        EventDispatcher.Instance.Subscribe<HoleScan>(CheckHole);
-    }
-
-    private void OnDisable()
-    {
-        EventDispatcher.Instance.Unsubscribe<HoleScan>(CheckHole);
-    }
-
     public List<PeopleController> ShufflePeopleTable(HoleController hole)
     {
         /*int holeID = (int)hole.ID;
@@ -185,21 +175,7 @@ public class MapController : MonoBehaviour
 
         return null;
     }
-
-    public void PeopleMoving(PeopleController p)
-    {
-        bool hasLine = CheckLineAvailable(p);
-        if (hasLine) { return; }
-        bool hasSpot = CheckSpotAvailable(p);
-        if (hasSpot) { return; }
-
-        // Technically game lose?
-        NothingAvailable(p);
-        if (GameManager.Instance.gameState != GameStateEnum.LOSE)
-        {
-            GameManager.Instance.GameLose();
-        }
-    }
+    
 
     public void ObjectSucked(PeopleController obj)
     {
@@ -236,77 +212,7 @@ public class MapController : MonoBehaviour
             GameManager.Instance.GameWin();
         }
     }
-
-    private void CheckHole(HoleScan data)
-    {
-        /*foreach (var line in groupFillLines)
-        {
-            // Always get the first fill hole in the line
-            if (line.groupFillHoles[0] == data.fillhole)
-            {
-                line.groupFillHoles.RemoveAt(0);
-                if (line.groupFillHoles.Count == 0)
-                {
-                    groupFillLines.Remove(line);
-                }
-                else
-                {
-                    line.groupFillHoles[0].transform.position = line.groupPos[0];
-                    line.groupPos.RemoveAt(0);
-                }
-                break;
-            }
-        }
-        CheckCurrentSpot();*/
-    }
-
-    private IEnumerator PlayPeopleAnimation(SpotController p, FillHoleController hole)
-    {
-        yield return new WaitForSeconds(0.1f * GameManager.Instance.gameSpeed);
-        /*var peoples = new List<PeopleController>(p.peoples);
-        int count = peoples.Count;
-        if (count >= GameManager.Instance.MaxHoleIntake)
-            count = GameManager.Instance.MaxHoleIntake;
-        if (count > GameManager.Instance.MaxHoleIntake - hole.Amount)
-            count -= hole.Amount;
-
-        for (int i = 0; i < count; i++)
-        {
-            hole.AddTempo();
-        }
-
-        for (int i = 0; i < count; i++)
-        {
-            yield return new WaitForSeconds(0.1f * GameManager.Instance.gameSpeed);
-            p.RemovePeople(p.GetPeople(), hole);
-        }*/
-    }
-
-    private void CheckCurrentSpot()
-    {
-        /*if (GameManager.Instance.gameState == GameStateEnum.LOSE) { return; }
-        // Check if there are no more holes to be filled -> Win
-        if (groupFillLines.Count <= 0 && GameManager.Instance.gameState != GameStateEnum.WIN) // I know it should be a different function for clarity but cmon its 3 lines
-        {
-            GameManager.Instance.GameWin();
-            return;
-        }
-
-        foreach (var spot in groupSpots)
-        {
-            if (spot.peoples.Count <= 0) { continue; }
-            foreach (var line in groupFillLines)
-            {
-                // Always get the first fill hole in the line
-                if (line.groupFillHoles[0].ID == spot.ID && line.groupFillHoles[0].Open)
-                {
-                    StartCoroutine(PlayPeopleAnimation(spot, line.groupFillHoles[0]));
-                    break;
-                }
-            }
-        }*/
-    }
-
+    
     private bool CheckLineAvailable(PeopleController p)
     {
         bool value = false;

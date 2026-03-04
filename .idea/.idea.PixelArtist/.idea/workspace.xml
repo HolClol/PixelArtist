@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b3941b5-0850-4752-8724-da353fae432d" name="Changes" comment="" />
+    <list default="true" id="8b3941b5-0850-4752-8724-da353fae432d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PixelArtist/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PixelArtist/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/HoleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/HoleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/MapController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/MapController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/PeopleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/PeopleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/InputManager.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +28,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/GridSelectorView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Temp/Compiled-Unlit-NewUnlitShader.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/MapCreator/MapCreatorManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -113,6 +119,7 @@
       <workItem from="1770185375880" duration="10077000" />
       <workItem from="1770786471606" duration="17000" />
       <workItem from="1770786553275" duration="10088000" />
+      <workItem from="1772605898605" duration="1624000" />
     </task>
     <servers />
   </component>
@@ -126,6 +133,17 @@
     <option name="unityProjectFolder" value="true" />
   </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
