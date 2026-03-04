@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8b3941b5-0850-4752-8724-da353fae432d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PixelArtist/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PixelArtist/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/GameData/Levels List.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/GameData/Levels List.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Map 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Map 1.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/HoleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/HoleController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/MapController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/MapController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/PeopleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/PeopleController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/InputManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +121,9 @@
       <workItem from="1770185375880" duration="10077000" />
       <workItem from="1770786471606" duration="17000" />
       <workItem from="1770786553275" duration="10088000" />
-      <workItem from="1772605898605" duration="1624000" />
+      <workItem from="1772605898605" duration="2125000" />
+      <workItem from="1772611252753" duration="18000" />
+      <workItem from="1772611290469" duration="2815000" />
     </task>
     <servers />
   </component>

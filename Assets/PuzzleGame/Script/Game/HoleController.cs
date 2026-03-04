@@ -98,17 +98,14 @@ public class HoleController : IDAssign, IDraggable, IAssignID
             yield return new WaitForSeconds(0.1f);
         }
             
-        FunctionManager.Instance.DelayFunction(0.25f, () =>
-        {
-            main.transform.DOScale(0f, 0.25f)
-                .SetEase(Ease.OutQuad)
-                .OnComplete(() => 
-                {
-                    var confetti = Pooling.Spawn("ConfettiBlast", prefab, "");
-                    confetti.transform.position = main.transform.position;
-                    parent.SetActive(false);
-                });
-        });
+        main.transform.DOScale(0f, 0.25f)
+            .SetEase(Ease.OutQuad)
+            .OnComplete(() => 
+            {
+                var confetti = Pooling.Spawn("ConfettiBlast", prefab, "");
+                confetti.transform.position = main.transform.position;
+                parent.SetActive(false);
+            });
     }
 
     private void OnTriggerEnter(Collider collider)

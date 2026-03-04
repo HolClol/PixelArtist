@@ -42,8 +42,8 @@ public class InputManager : MonoBehaviour
 
     private bool GameCanInput()
     {
-        if (GameManager.Instance.gameState == GameStateEnum.PAUSE || GameManager.Instance.gameState == GameStateEnum.TIMEOUT || GameManager.Instance.gameState == GameStateEnum.WIN || GameManager.Instance.gameState == GameStateEnum.LOSE) return false;
-        return true;
+        if (GameManager.Instance.gameState == GameStateEnum.NONE || GameManager.Instance.gameState == GameStateEnum.PLAYING) return true;
+        return false;
     }
 
     private void Update()

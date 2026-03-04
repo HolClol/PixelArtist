@@ -39,8 +39,8 @@ public class MapController : MonoBehaviour
     //[HideInInspector] public List<IAssignID> People;
 
     private List<GameObject> suckedObjects = new List<GameObject>();
-    public int fillCount = 0;
-    public int totalCount = 0;
+    private int fillCount = 0;
+    private int totalCount = 0;
 
 #if UNITY_EDITOR
     [Header("Map Data")]
