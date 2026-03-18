@@ -17,18 +17,18 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: b47619a64756d4287b669b6043a662b6
   m_SerializeEntries:
-  - m_GUID: 04bb16b8eb91e4831b7e443539a86715
+  - m_GUID: 08deeef9a61f67743841456b2b1073ce
     m_Address: Assets/PuzzleGame/MapCreator/Map 5.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 080213a0f36ba440bb4179cf32e26b12
-    m_Address: Assets/PuzzleGame/MapCreator/Map 15.prefab
+  - m_GUID: 1901bfd42afd1ab459d31216ffbc9161
+    m_Address: Assets/PuzzleGame/MapCreator/Map 6.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 272473d96dd894b63af0d3c2ab6af898
-    m_Address: Assets/PuzzleGame/MapCreator/Map 14.prefab
+  - m_GUID: 1df2177da2b01c24890049c34e37c4bb
+    m_Address: Assets/PuzzleGame/MapCreator/Map 4.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -37,18 +37,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 36a91cb7e1de64558864eaf01bc7e9de
-    m_Address: Assets/PuzzleGame/MapCreator/Map 1.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3768e1ba62336fd41ad8eb8eca84b903
     m_Address: Assets/PuzzleGame/MapCreator/MapTemplate.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 552030b23e080408e8097b0921b7d9d9
-    m_Address: Assets/PuzzleGame/MapCreator/Map 11.prefab
+  - m_GUID: 3f270de016b5dcc4ea4c6211332c57cd
+    m_Address: Assets/PuzzleGame/MapCreator/Map 2.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -57,43 +52,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8a6e2f232687c4a8fabd4174cd726d29
-    m_Address: Assets/PuzzleGame/MapCreator/Map 10.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8a9383a1e19874ba8ac82568ee5225cf
-    m_Address: Assets/PuzzleGame/MapCreator/Map 6.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9688c3a77238845fe954b6baefe8d558
-    m_Address: Assets/PuzzleGame/MapCreator/Map 9.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 97460e1016ea94cf19d484599eaea231
-    m_Address: Assets/PuzzleGame/MapCreator/Map 4.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aa61bdc7090bdf447857c70a97bc7898
     m_Address: Assets/PuzzleGame/MapCreator/Map 1.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: afa9a526f7cd14323acfa9edf15e15ee
+  - m_GUID: b1bdac20a69a79940904643e31d81f10
     m_Address: Assets/PuzzleGame/MapCreator/Map 3.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d53dda8aa448b4d868fffb7c57418ed8
-    m_Address: Assets/PuzzleGame/MapCreator/Map 2.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: eba15e063a1b34de3801c3b796d8389a
-    m_Address: Assets/PuzzleGame/MapCreator/Map 8.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
