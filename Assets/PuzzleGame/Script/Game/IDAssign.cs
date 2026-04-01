@@ -1,7 +1,7 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-public enum EnumID
+public enum EnumID : int
 {
     NONE = 0,
     BLOCK = 1,
@@ -24,6 +24,6 @@ public class IDAssign : MonoBehaviour
 
 public interface IAssignID
 {
-    public List<int> GetIDs();
-    public void SetIDs(List<int> ids);
+    public List<EnumID> GetIDs();
+    public void SetIDs(List<EnumID> ids);
 }

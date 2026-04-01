@@ -7,13 +7,14 @@ public class HoleController : IDAssign, IDraggable, IAssignID
 {
     public GameObject main;
     public GameObject prefab;
-    public List<EnumID> ListID = new List<EnumID>();    
+    public GameObject Outline;
+    public List<EnumID> ListID = new List<EnumID>(); 
     [HideInInspector] public List<IDAssign> people = new List<IDAssign>();
     [HideInInspector] public int totalCubes = 0;
     
     [SerializeField] private Collider[] holecollider;
-    private bool draggable = true;
     private Rigidbody rigidBody;
+    private bool draggable = true;
     private int cubeSucked = 0;
     private int _inAnimationCubes = 0;
 
@@ -22,27 +23,30 @@ public class HoleController : IDAssign, IDraggable, IAssignID
         rigidBody = GetComponent<Rigidbody>();
     }
 
-    public List<int> GetIDs()
+    public List<EnumID> GetIDs()
     {
-        var list = new List<int>();
+        var list = new List<EnumID>();
         foreach (EnumID id in ListID)
         {
-            list.Add((int)id);
+            list.Add(id);
         }
         return list;
     }
 
     public void OnClick()
     {
-
+        //Outline.SetActive(true);
+        GameManager.Instance.currentMap.CallHighlightBlock(GetIDs(), true);
     }
 
     public void OnRelease(Node3D node)
     {
+        //Outline.SetActive(false);
+        GameManager.Instance.currentMap.CallHighlightBlock(GetIDs(), false);
         main.transform.position = new Vector3(node.pos.x, main.transform.position.y, node.pos.z);
     }
 
-    public void SetIDs(List<int> ids)
+    public void SetIDs(List<EnumID> ids)
     {
         throw new System.NotImplementedException();
     }
@@ -70,13 +74,13 @@ public class HoleController : IDAssign, IDraggable, IAssignID
         _inAnimationCubes += value;
     }
 
-    private bool CheckID(List<int> pplid)
+    private bool CheckID(List<EnumID> pplid)
     {
         foreach (var holeid in ListID)
         {
             foreach (var id in pplid)
             {
-                if ((int)holeid == id)
+                if (holeid == id)
                 {
                     return true;
                 }

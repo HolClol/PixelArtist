@@ -7,7 +7,7 @@ using UnityEditor;
 [Serializable]
 public class IntListWrapper
 {
-    public List<int> ids;
+    public List<EnumID> ids;
 }
 
 [ExecuteAlways]
@@ -124,7 +124,7 @@ cell = Instantiate(cellPrefab);
         if (id != null)
         {
             if (idColorCells[idx].ids.Count <= 0) return;
-            id.SetIDs(new List<int>(idColorCells[idx].ids));
+            id.SetIDs(new List<EnumID>(idColorCells[idx].ids));
             enumid = (EnumID)idColorCells[idx].ids[0];
         }
         if (rend != null)

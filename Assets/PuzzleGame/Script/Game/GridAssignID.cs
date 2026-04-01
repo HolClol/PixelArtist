@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class GridAssignID : MonoBehaviour, IAssignID
 {
-    public List<int> ID;
+    public List<EnumID> ID;
     public bool Taken = false;
-    public List<int> GetIDs()
+    public List<EnumID> GetIDs()
     {
         return ID;
     }
 
-    public void SetIDs(List<int> ids)
+    public void SetIDs(List<EnumID> ids)
     {
-        ID = new List<int>(ids);
+        ID = new List<EnumID>(ids);
     }
 }

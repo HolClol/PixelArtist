@@ -26,7 +26,7 @@ public class InputManager : MonoBehaviour
     private Node3D debugNode;
     private Coroutine movingCoroutine;
     private LayerMask[] holeMask;
-    private List<int> holeID;
+    private List<EnumID> holeID;
     private IDraggable _dragInterface;
 
 #if UNITY_EDITOR

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Pink
+  m_Name: M_Black
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -26,7 +26,7 @@ Material:
   stringTagMap: {}
   disabledShaderPasses:
   - SRPDEFAULTUNLIT
-  m_LockedProperties: 
+  m_LockedProperties: _Glossiness
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -118,7 +118,7 @@ Material:
     - _LightFalloffSize: 0.5
     - _LightmapDirectionPitch: 0
     - _LightmapDirectionYaw: 0
-    - _Metallic: 0
+    - _Metallic: 0.25
     - _Mode: 0
     - _OcclusionStrength: 1
     - _OutlineDepthOffset: 0
@@ -150,9 +150,9 @@ Material:
     - _VertexExtrusionSmoothNormals: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.690566, g: 0.2826205, b: 0.27492338, a: 1}
-    - _Color: {r: 0.92941177, g: 0.5411765, b: 0.53333336, a: 1}
-    - _ColorDim: {r: 0.6528301, g: 0.25802213, b: 0.2500462, a: 1}
+    - _BaseColor: {r: 0.253217, g: 0.11267344, b: 0.79622644, a: 1}
+    - _Color: {r: 0.10188681, g: 0.10188681, b: 0.10188681, a: 1}
+    - _ColorDim: {r: 0.060085796, g: 0.017308632, b: 0.83396226, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorDimExtra: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorDimSteps: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}

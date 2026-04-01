@@ -6,12 +6,15 @@ using DG.Tweening;
 public class PeopleController : IDAssign, IAssignID
 {
     public List<EnumID> ListID = new List<EnumID>();
-    public GameObject FakeGrid, RealGrid;
+    public GameObject FakeGrid, Outline, RealGrid;
+
+    private Material matBlock;
     private Vector3 scaleOrigin;
     private Rigidbody rb;
     private MeshCollider colliderbox;
     private GameObject realOwner;
     private HoleController _holeScript;
+    private bool sucked;
 
     private LayerMask mask = (1 << 0) | (1 << 8);
 
@@ -23,20 +26,34 @@ public class PeopleController : IDAssign, IAssignID
         colliderbox = boxes[1] as MeshCollider; // Because fuck it 
         scaleOrigin = transform.localScale;
     }
-    public List<int> GetIDs()
+    public List<EnumID> GetIDs()
     {
-        var list = new List<int>();
+        var list = new List<EnumID>();
         foreach (EnumID id in ListID)
         {
-            list.Add((int)id);
+            list.Add(id);
         }
         return list;
     }
+
+    public void Highlight()
+    {
+        if (sucked) return;
+        Outline.SetActive(true);
+    }
+
+    public void UnHighlight()
+    {
+        Outline.SetActive(false);
+    }
+    
 
     public void SuckedIntoHole(Transform holepos, HoleController holescript)
     {
         colliderbox.excludeLayers = LayerMask.GetMask("People", "Grid", "Default");
         _holeScript = holescript;
+        sucked = true;
+        UnHighlight();
         StartCoroutine(MovementSucked(holepos));
     }
 
@@ -96,7 +113,7 @@ public class PeopleController : IDAssign, IAssignID
         t.Join(transform.DOScale(scaleOrigin, 1f * GameManager.Instance.gameSpeed));
     }
 
-    public void SetIDs(List<int> ids)
+    public void SetIDs(List<EnumID> ids)
     {
         throw new System.NotImplementedException();
     }

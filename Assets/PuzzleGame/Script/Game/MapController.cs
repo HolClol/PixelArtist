@@ -4,6 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
+#region JUNK STUFF
 [System.Serializable] public class FillLine
 {
     public List<FillHoleController> groupFillHoles;
@@ -13,6 +14,19 @@ using UnityEngine;
     {
         groupFillHoles = hole;
         this.groupPos = groupPos;
+    }
+}
+#endregion
+
+public class BlockInfo
+{
+    public MeshCollider Collider;
+    public PeopleController Controller;
+
+    public BlockInfo(MeshCollider collider, PeopleController controller)
+    {
+        Collider = collider;
+        Controller = controller;
     }
 }
 
@@ -32,7 +46,7 @@ public class MapController : MonoBehaviour
 
     // If want to debug or test, comment the [HideInInspector]
     [HideInInspector] public List<Transform> groupPeople;
-    [HideInInspector] public Dictionary<EnumID,List<MeshCollider>> dictPeople = new Dictionary<EnumID, List<MeshCollider>>();
+    [HideInInspector] public Dictionary<EnumID,List<BlockInfo>> dictPeople = new Dictionary<EnumID, List<BlockInfo>>();
     [HideInInspector] public Dictionary<HoleController, List<EnumID>> dictHole = new Dictionary<HoleController, List<EnumID>>();
     //[HideInInspector] public List<SpotController> groupSpots;
     //[HideInInspector] public List<FillLine> groupFillLines;
@@ -52,11 +66,13 @@ public class MapController : MonoBehaviour
     public void INIT()
     {
         suckedObjects.Clear();
+        // Get all holes in the map
         foreach (Transform hole in _hole.transform)
         {
             var holeScript = hole.GetComponentInChildren<HoleController>();
             dictHole[holeScript] = new List<EnumID>(holeScript.ListID);
         }
+        // Get all the blocks unsorted in the map
         foreach (Transform floor in _people.transform)
         {
             totalCount++;
@@ -65,23 +81,26 @@ public class MapController : MonoBehaviour
                 groupPeople.Add(group);
             }
         }
+        // Wtf is this
         foreach (Transform person in groupPeople)
         {
-            var idObject = person.GetComponentInChildren<IAssignID>();
-            var colliderObject = person.GetComponentInChildren<MeshCollider>();
-            foreach (var id in idObject.GetIDs())
+            MeshCollider colliderObject = person.GetComponentInChildren<MeshCollider>();
+            PeopleController controllerObject = person.GetComponentInChildren<PeopleController>();
+            foreach (var id in controllerObject.GetIDs())
             {
-                var key = (EnumID)id;
-                if (!dictPeople.TryGetValue(key, out List<MeshCollider> list))
+                var key = id;
+                // Create new key to fill the ID
+                if (!dictPeople.TryGetValue(key, out List<BlockInfo> list))
                 {
-                    list = new List<MeshCollider>();
+                    list = new List<BlockInfo>();
                     dictPeople[key] = list;
                 }
-
-                list.Add(colliderObject);
+                BlockInfo info = new BlockInfo(colliderObject, controllerObject);
+                list.Add(info);
                 break;
             }
         }
+        // Sort holes according to blocks with matching ID
         foreach (var hole in dictHole)
         {
             var holeScript = hole.Key;
@@ -89,7 +108,7 @@ public class MapController : MonoBehaviour
             {
                 foreach (var people in dictPeople)
                 {
-                    if (holeScript.GetIDs().Contains((int)people.Key))
+                    if (holeScript.GetIDs().Contains(people.Key))
                     {
                         foreach (var single in people.Value)
                         {
@@ -100,12 +119,12 @@ public class MapController : MonoBehaviour
                     {
                         foreach (var single in people.Value)
                         {
-                            holeScript.IgnoreCollision(single);
+                            holeScript.IgnoreCollision(single.Collider);
                         }
                     }
                 }
                 #region FOR SPECIAL CASES IDK HOW THIS HAPPEN
-                if (GameManager.Instance.CurrentLevel == 4)
+                /*if (GameManager.Instance.CurrentLevel == 4)
                 {
                     if (id == EnumID.YELLOW) 
                     {
@@ -120,7 +139,7 @@ public class MapController : MonoBehaviour
                         holeScript.totalCubes--;
                         totalCount--;
                     }
-                }
+                }*/
                 #endregion
 
             }
@@ -128,6 +147,7 @@ public class MapController : MonoBehaviour
 
         GridCanvasController.INIT();
         GridPathfinder3D.Instance.InitializeGraph(_grid);
+        #region JUNK STUFF
         /*foreach (Transform line in _fillhole)
         { 
             var linehole = new List<FillHoleController>();
@@ -150,8 +170,9 @@ public class MapController : MonoBehaviour
             groupSpots.Add(group.GetComponentInChildren<SpotController>());
             if (count == AvailableSpots) { break; }
         }*/
+        #endregion 
     }
-
+    #region JUNK STUFF
     public List<PeopleController> ShufflePeopleTable(HoleController hole)
     {
         /*int holeID = (int)hole.ID;
@@ -175,6 +196,7 @@ public class MapController : MonoBehaviour
 
         return null;
     }
+    #endregion
     
 
     public void ObjectSucked(PeopleController obj)
@@ -204,6 +226,33 @@ public class MapController : MonoBehaviour
         IncreaseCount();
     }
 
+    public void CallHighlightBlock(List<EnumID> ids, bool value)
+    {
+        List<PeopleController> foundIDs = new List<PeopleController>();
+        foreach (var neededid in ids)
+        {
+            foreach (var id in dictPeople)
+            {
+                if (id.Key == neededid)
+                {
+                    foreach (var block in id.Value)
+                    {
+                        foundIDs.Add(block.Controller);
+                    }
+                    
+                }
+            }
+        }
+        foreach (var block in foundIDs)
+        {
+            if (value)
+                block.Highlight();
+            else 
+                block.UnHighlight();
+        }
+    }
+    
+
     private void IncreaseCount()
     {
         fillCount++;
@@ -212,7 +261,8 @@ public class MapController : MonoBehaviour
             GameManager.Instance.GameWin();
         }
     }
-    
+
+    #region JUNK STUFF
     private bool CheckLineAvailable(PeopleController p)
     {
         bool value = false;
@@ -242,6 +292,7 @@ public class MapController : MonoBehaviour
 
         return value;
     }
+    
 
     private bool CheckSpotAvailable(PeopleController p)
     {
@@ -278,4 +329,5 @@ public class MapController : MonoBehaviour
             ufo.StartAnimation(new Vector3(2.75f, 6f, -5.75f));
         ufo.AddPeople(p);*/
     }
+    #endregion
 }

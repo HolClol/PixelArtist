@@ -199,7 +199,7 @@ public class GridPathfinder3D : MonoBehaviour
         return best;
     }
 
-    public Dictionary<Node3D, bool> BuildInflatedWalkability(List<int> requiredIDs)
+    public Dictionary<Node3D, bool> BuildInflatedWalkability(List<EnumID> requiredIDs)
     {
         var raw = BuildDynamicWalkability(requiredIDs);
         var corridor = new Dictionary<Node3D, bool>();
@@ -234,7 +234,7 @@ public class GridPathfinder3D : MonoBehaviour
     }
 
 
-    public Dictionary<Node3D, bool> BuildDynamicWalkability(List<int> requiredID)
+    public Dictionary<Node3D, bool> BuildDynamicWalkability(List<EnumID> requiredID)
     {
         var map = Node3Ds.ToDictionary(n => n, n => true);
 
