@@ -21,6 +21,7 @@ Shader "Custom/OutlineGlow"
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            #pragma multi_compile_instancing
             #include "UnityCG.cginc"
 
             fixed4 _Color;
@@ -32,6 +33,7 @@ Shader "Custom/OutlineGlow"
             {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
+                UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
             struct v2f
@@ -43,6 +45,8 @@ Shader "Custom/OutlineGlow"
 
             v2f vert(appdata v)
             {
+                UNITY_SETUP_INSTANCE_ID(v);
+
                 v2f o;
                 o.pos = UnityObjectToClipPos(v.vertex);
 
@@ -55,15 +59,9 @@ Shader "Custom/OutlineGlow"
 
             fixed4 frag(v2f i) : SV_Target
             {
-                // Fresnel for soft edge glow
-                float fresnel = pow(1 - saturate(dot(i.viewDir, i.normal)), _EdgeSoftness);
-
-                // Base color (very subtle)
+                float fresnel = pow(1 - saturate(dot(normalize(i.viewDir), normalize(i.normal))), _EdgeSoftness);
                 float3 baseCol = _Color.rgb;
-
-                // Emission (this is what bloom reacts to)
                 float3 emission = _EmissionColor.rgb * fresnel * _EmissionStrength;
-
                 return float4(baseCol + emission, 1);
             }
             ENDCG
