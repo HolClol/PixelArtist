@@ -124,17 +124,21 @@ public class MapController : MonoBehaviour
                     }
                 }
                 #region FOR SPECIAL CASES IDK HOW THIS HAPPEN
+
+                switch (GameManager.Instance.CurrentLevel)
+                {
+                    case 8:
+                        if (id == EnumID.BLACK)
+                        {
+                            holeScript.totalCubes--;
+                            totalCount--;
+                        }
+
+                        break;
+                }
                 /*if (GameManager.Instance.CurrentLevel == 4)
                 {
                     if (id == EnumID.YELLOW) 
-                    {
-                        holeScript.totalCubes--;
-                        totalCount--;
-                    }
-                }
-                else if (GameManager.Instance.CurrentLevel == 8)
-                {
-                    if (id == EnumID.BLACK)
                     {
                         holeScript.totalCubes--;
                         totalCount--;

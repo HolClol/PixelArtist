@@ -96,21 +96,19 @@ public class UIManager : MonoBehaviour
     }
 
     public void SetDisplayCam(bool value)
-    {  
-        
-        int camdist = (int)(GameManager.Instance.currentMap.CameraDistance * 2f);
-        int targetdist = camdist;
-        if (value)
+    {
+        float enddist = GameManager.Instance.currentMap.CameraDistance;
+        float startdist = enddist*2f;
+        if (value) // Open camera
         {
             DisplayCam.SetActive(value);
-            targetdist = camdist * 4;
-            camComponent.fieldOfView = targetdist;
-            camComponent.DOFieldOfView(camdist * 0.85f, 0.25f);
+            camComponent.orthographicSize = startdist;
+            camComponent.DOOrthoSize(enddist, 0.2f);
         }
-        else
+        else // Close camera (Reverse the order)
         {
-            camComponent.fieldOfView = camdist;
-            camComponent.DOFieldOfView(targetdist * 4, 0.25f)
+            camComponent.orthographicSize = enddist;
+            camComponent.DOFieldOfView(startdist, 0.2f)
                 .OnComplete(() => 
                 {
                     DisplayCam.SetActive(false);

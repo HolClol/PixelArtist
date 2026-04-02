@@ -6,59 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="8b3941b5-0850-4752-8724-da353fae432d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PixelArtist/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PixelArtist/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Map 6.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Map 6.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Black.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Black.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Blue.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Blue.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Brown.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Brown.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Cyan.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Cyan.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/DarkBrown.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/DarkBrown.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/FadeBlack.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/FadeBlack.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Gray.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Gray.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Green.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Green.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/LightCyan.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/LightCyan.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Orange.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Orange.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Pink.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Pink.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Red.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Red.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/White.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/White.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Yellow.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Material/BasicColor/Yellow.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Prefab/Objects/Set Up/Color.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Prefab/Objects/Set Up/Color.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/GameData/Levels List.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/GameData/Levels List.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Map 12.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Map 12.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Map 13.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Map 13.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 10.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 10.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 11.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 11.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 7.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 7.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 8.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 8.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 9.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 9.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Prefab/Objects/Set Up/Hole.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Prefab/Objects/Set Up/Hole.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Scenes/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Scenes/MainGame.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/GridAssignID.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/GridAssignID.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/GridVisualizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/GridVisualizer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/HoleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/HoleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/IDAssign.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/IDAssign.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/MapController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/MapController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/Pathfinding/GridPathfinder3D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/Pathfinding/GridPathfinder3D.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/PeopleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/PeopleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/InputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Test.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Test/Map 12.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Test/Map 12.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Test/Map 13.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Test/Map 13.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Test/Map 17.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Test/Map 17.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Test/Map 9.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Test/Map 9.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/UIManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,8 +33,10 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Material/Properties/Outline.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Material/Properties/OutlineGlow.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/GridVisualizer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/HoleController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/IDAssign.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/MapController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/Pathfinding/GridPathfinder3D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/PeopleController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -177,6 +142,9 @@
       <workItem from="1774428080670" duration="4515000" />
       <workItem from="1774433541763" duration="69000" />
       <workItem from="1774435783856" duration="658000" />
+      <workItem from="1775036778282" duration="3241000" />
+      <workItem from="1775140702605" duration="12000" />
+      <workItem from="1775140724771" duration="2859000" />
     </task>
     <servers />
   </component>

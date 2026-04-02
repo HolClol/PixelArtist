@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee33f8523f470f4195353c026612791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraDistance: 35
+  CameraDistance: 40
   RewardCoin: 40
   Timer: 120
   _people: {fileID: 4782759202235244906}
