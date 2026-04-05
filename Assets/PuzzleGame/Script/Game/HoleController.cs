@@ -106,6 +106,7 @@ public class HoleController : IDAssign, IDraggable, IAssignID
             .SetEase(Ease.OutQuad)
             .OnComplete(() => 
             {
+                AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_HOLE_COMPLETE, transform);
                 var confetti = Pooling.Spawn("ConfettiBlast", prefab, "");
                 confetti.transform.position = main.transform.position;
                 parent.SetActive(false);

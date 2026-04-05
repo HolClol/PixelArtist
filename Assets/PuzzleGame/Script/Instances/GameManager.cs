@@ -3,23 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum GameStateEnum
-{
-    NONE,
-    WIN,
-    LOSE,
-    TIMEOUT,
-    PAUSE,
-    PLAYING
-}
-
-public enum RewardTypeEnum
-{
-    WIN,
-    DAILY,
-    LUCKYWHEEL,
-}
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -105,7 +88,8 @@ public class GameManager : MonoBehaviour
         CurrencyManager.Instance.INIT();
         UIManager.Instance.INIT();
         // ==========================
-
+        
+        AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_BG, transform);
         MapLoad();
     }
 
@@ -153,8 +137,9 @@ public class GameManager : MonoBehaviour
     {
         //Debug.Log("Game Win");
         gameState = GameStateEnum.WIN;
-        FunctionManager.Instance.DelayFunction(0.5f, () => 
-        { 
+        FunctionManager.Instance.DelayFunction(0.5f, () =>
+        {
+            AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_WIN, transform);
             UIManager.Instance.OpenWin();
         });
         

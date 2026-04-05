@@ -7,21 +7,19 @@
     <list default="true" id="8b3941b5-0850-4752-8724-da353fae432d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PixelArtist/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PixelArtist/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/GameData/Levels List.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/GameData/Levels List.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Map 12.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Map 12.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Map 13.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Map 13.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 10.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 10.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 11.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 11.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 7.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 7.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 8.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 8.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 9.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/MapCreator/Scrap/Map 9.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Prefab/Objects/Set Up/Hole.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Prefab/Objects/Set Up/Hole.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Prefab/Edits/_Managers.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Prefab/Edits/_Managers.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Scenes/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Scenes/MainGame.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/HoleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/HoleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/IDAssign.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/IDAssign.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/MapController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/MapController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/PeopleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/PeopleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/UI/Popups/LosePopup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/UI/Popups/LosePopup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/UI/Popups/RefillPopup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/UI/Popups/RefillPopup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/UI/Popups/RetryPopup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/UI/Popups/RetryPopup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/UI/Popups/RewardPopup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/UI/Popups/RewardPopup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/UI/Popups/SettingPopup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/UI/Popups/SettingPopup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PuzzleGame/Script/UI/UIGameplayPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PuzzleGame/Script/UI/UIGameplayPanel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,10 +38,16 @@
     <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/MapController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/Pathfinding/GridPathfinder3D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Game/PeopleController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/GridSelectorView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Instances/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/MapCreator/MapCreatorManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Resources/ClassContainer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Resources/EnumContainer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Resources/InterfaceContainer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PuzzleGame/Script/Resources/StructContainer.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -144,7 +148,11 @@
       <workItem from="1774435783856" duration="658000" />
       <workItem from="1775036778282" duration="3241000" />
       <workItem from="1775140702605" duration="12000" />
-      <workItem from="1775140724771" duration="2859000" />
+      <workItem from="1775140724771" duration="3710000" />
+      <workItem from="1775149155785" duration="402000" />
+      <workItem from="1775385130356" duration="14000" />
+      <workItem from="1775385153632" duration="1828000" />
+      <workItem from="1775402448911" duration="7098000" />
     </task>
     <servers />
   </component>

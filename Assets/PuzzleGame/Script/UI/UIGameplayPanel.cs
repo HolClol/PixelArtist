@@ -25,10 +25,12 @@ public class UIGameplayPanel : UIPanel
     {
         pauseBtn.onClick.AddListener(() => 
         {
+            AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_INTERACT, transform);
             UIManager.Instance.OpenSetting();
         });
         restartBtn.onClick.AddListener(() => 
         {
+            AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_INTERACT, transform);
             if (GameManager.Instance.gameState == GameStateEnum.PLAYING)
                 UIManager.Instance.OpenRetry();
             else

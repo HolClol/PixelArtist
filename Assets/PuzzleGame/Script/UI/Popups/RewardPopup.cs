@@ -23,6 +23,7 @@ public class RewardPopup : UIPanel
     {
         rewardNormalBtn.onClick.AddListener(() => 
         {
+            AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_INTERACT, transform);
             GameManager.Instance.ReceiveReward(CurrencyTypeEnum.Coin, RewardTypeEnum.WIN, 1f);
             GameManager.Instance.NextLevel();
             Close();
@@ -31,6 +32,7 @@ public class RewardPopup : UIPanel
         {
             AdsManager.Instance.ShowReward(() =>
             {
+                AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_INTERACT, transform);
                 GameManager.Instance.ReceiveReward(CurrencyTypeEnum.Coin, RewardTypeEnum.WIN, 2f);
                 GameManager.Instance.NextLevel();
                 Close();

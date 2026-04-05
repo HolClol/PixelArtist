@@ -31,6 +31,7 @@ public class SettingPopup : UIPanel
     {
         resumeBtn.onClick.AddListener(() => 
         {
+            AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_INTERACT, transform);
             Close();
         });
         closeBtn.onClick.AddListener(() =>
@@ -40,16 +41,19 @@ public class SettingPopup : UIPanel
         // Music
         settingClasses[0].toggleBtn.onClick.AddListener(() => 
         {
+            AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_INTERACT, transform);
             PlayAnimationToggle(settingClasses[0], 0);
         });
         // Sound
         settingClasses[1].toggleBtn.onClick.AddListener(() =>
         {
+            AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_INTERACT, transform);
             PlayAnimationToggle(settingClasses[1], 1);
         });
         // Vibrate
         settingClasses[2].toggleBtn.onClick.AddListener(() =>
         {
+            AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_INTERACT, transform);
             PlayAnimationToggle(settingClasses[2], 2);
         });
     }

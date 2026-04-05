@@ -26,6 +26,7 @@ public class LosePopup : UIPanel
         {
             AdsManager.Instance.ShowReward(() => 
             {
+                AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_INTERACT, transform);
                 GameManager.Instance.GameRevive(true);
                 Close();
             });
@@ -38,6 +39,7 @@ public class LosePopup : UIPanel
                 // Not enough money
                 return;
             }
+            AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_INTERACT, transform);
             CurrencyManager.Instance.SubCurrency(CurrencyTypeEnum.Coin, GameManager.Instance.reviveCost);
             GameManager.Instance.GameRevive(false);
             Close();

@@ -1,34 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
-
-#region JUNK STUFF
-[System.Serializable] public class FillLine
-{
-    public List<FillHoleController> groupFillHoles;
-    public List<Vector3> groupPos;
-
-    public FillLine(List<FillHoleController> hole, List<Vector3> groupPos)
-    {
-        groupFillHoles = hole;
-        this.groupPos = groupPos;
-    }
-}
-#endregion
-
-public class BlockInfo
-{
-    public MeshCollider Collider;
-    public PeopleController Controller;
-
-    public BlockInfo(MeshCollider collider, PeopleController controller)
-    {
-        Collider = collider;
-        Controller = controller;
-    }
-}
 
 public class MapController : MonoBehaviour
 {

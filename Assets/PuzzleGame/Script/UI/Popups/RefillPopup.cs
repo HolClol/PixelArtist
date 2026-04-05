@@ -32,6 +32,7 @@ public class RefillPopup : UIPanel
                 return;
             }
             GameManager.Instance.lives = 5;
+            AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_INTERACT, transform);
             CurrencyManager.Instance.SubCurrency(CurrencyTypeEnum.Coin, GameManager.Instance.lifeRefillCost);
             Close();
         });
@@ -42,6 +43,7 @@ public class RefillPopup : UIPanel
                 GameManager.Instance.lives++;
                 if (isThruRetry)
                 {
+                    AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_INTERACT, transform);
                     UIManager.Instance.OpenRetry();
                 }
                 Close();

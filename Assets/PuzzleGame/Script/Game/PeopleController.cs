@@ -77,13 +77,14 @@ public class PeopleController : IDAssign, IAssignID
             if (dist <= stopDist)
                 break;
 
-            float speed = (baseSpeed + multiplySpeed + dist * 10f) * GameManager.Instance.gameSpeed * Time.deltaTime;
+            float speed = (baseSpeed + multiplySpeed + dist * 20f) * GameManager.Instance.gameSpeed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, targetPos, speed);
-            multiplySpeed += (multiplySpeed * 10f + dist * 10f) * Time.deltaTime;
+            multiplySpeed += (multiplySpeed * 20f + dist * 20f) * Time.deltaTime;
             
             yield return null;
         }
         gameObject.SetActive(false);
+        AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_CUBE_POP, transform);
         GameManager.Instance.currentMap.ObjectSucked(this);
         _holeScript.SetStandbyCube(-1);
         /*FunctionManager.Instance.DelayFunction(0.5f, () => 

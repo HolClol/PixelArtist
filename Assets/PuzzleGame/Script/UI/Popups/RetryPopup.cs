@@ -26,16 +26,19 @@ public class RetryPopup : UIPanel
             // Send to game manager to check life count
             if (GameManager.Instance.lives > 0)
             {
+                AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_INTERACT, transform);
                 GameManager.Instance.GameRetry();
             }
             else
             {
+                AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_INTERACT, transform);
                 UIManager.Instance.OpenRefill(true);
             }
             Close();
         });
         closeBtn.onClick.AddListener(() =>
         {
+            AudioManager.Instance.PlayAudio(AudioTypeEnum.SFX_INTERACT, transform);
             Close();
         });
     }
